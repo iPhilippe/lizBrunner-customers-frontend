@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LizBrunner.Business.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ namespace LizBrunner.App.ViewModels
 {
     public class ClientViewModel
     {
-
+      
         [Key]
         public Guid Id { get; set; }
 
@@ -52,9 +53,40 @@ namespace LizBrunner.App.ViewModels
         [ScaffoldColumn(false)]
         public DateTime RegisterDate { get; set; }
         [HiddenInput]
+
+        #region Adress
+
+        [Key]
         public Guid AdressId { get; set; }
 
-        /* RF Relation */
-        public AdressViewModel Adress { get; set; }
+        [DisplayName("Logradouro")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [StringLength(100, ErrorMessage = "Maximo de 100 caracteres")]
+        public string Street { get; set; }
+
+        [DisplayName("Numero")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        public string Number { get; set; }
+
+        [DisplayName("Complemento")]
+        public string Complement { get; set; }
+
+        [DisplayName("CEP")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        [StringLength(20, ErrorMessage = "Maximo de 20 caracteres")]
+        public string Zipcode { get; set; }
+
+        [DisplayName("Bairro")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        public string Neighborhood { get; set; }
+
+        [DisplayName("Cidade")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        public string City { get; set; }
+
+        [DisplayName("Estado")]
+        [Required(ErrorMessage = "O campo é obrigatório")]
+        public State State { get; set; } 
+        #endregion
     }
 }

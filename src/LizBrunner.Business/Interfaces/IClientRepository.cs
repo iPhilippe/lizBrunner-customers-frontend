@@ -9,7 +9,6 @@ namespace LizBrunner.Business.Interfaces
 {
     public interface IClientRepository : IRepository<Client>
     {
-        Task<Client> ObterClienteEoEndereco(Guid id);
-                
+      
     }
 }

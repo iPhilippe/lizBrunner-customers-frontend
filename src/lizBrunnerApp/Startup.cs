@@ -43,8 +43,10 @@ namespace lizBrunnerApp
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddScoped<LizDbContext>();
-            services.AddScoped<IAdressRepository, AdressRepository>();
+          
             services.AddScoped<IClientRepository, ClientRepository>();
 
         }

@@ -15,11 +15,7 @@ namespace LizBrunner.Data.Repository
 
         public ClientRepository(LizDbContext context) : base(context){ }
 
-        public async Task<Client> ObterClienteEoEndereco(Guid id)
-        {
-            return await Db.Clients.AsNoTracking().Include(a => a.Adress)
-                .FirstOrDefaultAsync(p => p.AdressId == id);
-        }
+       
        
 
     }

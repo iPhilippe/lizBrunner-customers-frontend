@@ -19,7 +19,7 @@ namespace LizBrunner.Data.Context
         }
 
         public DbSet<Client> Clients { get; set; }
-        public DbSet<Adress> Adresses { get; set; }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

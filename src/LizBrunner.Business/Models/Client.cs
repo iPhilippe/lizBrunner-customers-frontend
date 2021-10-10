@@ -18,11 +18,17 @@ namespace LizBrunner.Business.Models
         public bool IsReceivingInformation { get; set; } = false;
         public bool IsVip { get; set; } = false;
         public DateTime RegisterDate { get; set; }
-        public Guid AdressId { get; set; }
 
-        /* RF Relation */
-        public Adress Adress { get; set; }
-    
+        #region adress
+        public string Street { get; set; }
+        public string Number { get; set; }
+        public string Complement { get; set; }
+        public string Zipcode { get; set; }
+        public string Neighborhood { get; set; }
+        public string City { get; set; }
+        public State State { get; set; } 
+        #endregion
+
 
 
     }

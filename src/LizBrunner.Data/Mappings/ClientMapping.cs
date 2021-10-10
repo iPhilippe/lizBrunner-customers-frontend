@@ -32,8 +32,28 @@ namespace LizBrunner.Data.Mappings
             builder.Property(c => c.Birthdate)
                 .IsRequired();
 
-            builder.HasOne(c => c.Adress)
-                .WithOne(a => a.Client);
+            builder.Property(a => a.Street)
+               .IsRequired()
+               .HasColumnType("varchar(100)");
+
+            builder.Property(a => a.Number)
+                .IsRequired();
+
+            builder.Property(a => a.Complement)
+                .HasColumnType("varchar(70)");
+
+            builder.Property(a => a.Zipcode)
+                .IsRequired();
+
+            builder.Property(a => a.Neighborhood)
+                .IsRequired()
+                .HasColumnType("varchar(70)");
+
+            builder.Property(a => a.City)
+                .IsRequired();
+
+            builder.Property(a => a.State)
+                .IsRequired();
 
             builder.ToTable("Clients");
         }
