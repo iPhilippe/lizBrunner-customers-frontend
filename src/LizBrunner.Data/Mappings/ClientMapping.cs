@@ -15,6 +15,12 @@ namespace LizBrunner.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(150)");
 
+            builder.Property(c => c.Birthdate)
+                .IsRequired();
+            
+            builder.Property(c => c.Gender)
+                .IsRequired();
+            
             builder.Property(c => c.CPF)
                 .IsRequired()
                 .HasColumnType("varchar(11)");
@@ -23,13 +29,10 @@ namespace LizBrunner.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(20)");
 
-            builder.Property(c => c.Gender)
-                .IsRequired();
-
             builder.Property(c => c.Email)
                 .IsRequired();
-
-            builder.Property(c => c.Birthdate)
+            
+            builder.Property(c => c.RegisterDate)
                 .IsRequired();
 
             builder.Property(a => a.Street)

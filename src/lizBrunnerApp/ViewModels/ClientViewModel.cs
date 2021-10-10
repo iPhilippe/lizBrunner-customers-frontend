@@ -56,9 +56,6 @@ namespace LizBrunner.App.ViewModels
 
         #region Adress
 
-        [Key]
-        public Guid AdressId { get; set; }
-
         [DisplayName("Logradouro")]
         [Required(ErrorMessage = "O campo é obrigatório")]
         [StringLength(100, ErrorMessage = "Maximo de 100 caracteres")]
