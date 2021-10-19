@@ -1,12 +1,13 @@
 ﻿using LizBrunner.Business.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using static LizBrunner.Business.Models.Util.Enums;
+using LizBrunner.Business.Models.Util;
 
 namespace LizBrunner.App.ViewModels
 {
@@ -22,6 +23,7 @@ namespace LizBrunner.App.ViewModels
         public string Name { get; set; }
 
         [DisplayName("Nascimento")]
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "O campo é obrigatório")]
         public DateTime Birthdate { get; set; }
         
@@ -31,6 +33,7 @@ namespace LizBrunner.App.ViewModels
 
         [DisplayName("CPF")]
         [Required(ErrorMessage = "O campo é obrigatório")]
+        [StringLength(11, ErrorMessage = "Maximo de 11 caracteres")]
         [RegularExpression("([0-9]+)")]
         public string CPF { get; set; }
 
@@ -51,8 +54,8 @@ namespace LizBrunner.App.ViewModels
         public bool IsVip { get; set; } = false;
 
         [ScaffoldColumn(false)]
-        public DateTime RegisterDate { get; set; }
         [HiddenInput]
+        public DateTime RegisterDate { get; set; }
 
         #region Adress
 
@@ -83,7 +86,8 @@ namespace LizBrunner.App.ViewModels
 
         [DisplayName("Estado")]
         [Required(ErrorMessage = "O campo é obrigatório")]
-        public State State { get; set; } 
+        public States State { get; set; }
+
         #endregion
     }
 }

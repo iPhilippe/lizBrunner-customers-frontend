@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static LizBrunner.Business.Models.Util.Enums;
+using LizBrunner.Business.Models.Util;
 
 namespace LizBrunner.Business.Models
 {
@@ -26,10 +26,8 @@ namespace LizBrunner.Business.Models
         public string Zipcode { get; set; }
         public string Neighborhood { get; set; }
         public string City { get; set; }
-        public State State { get; set; } 
+        public States State { get; set; }
         #endregion
-
-
 
     }
 }

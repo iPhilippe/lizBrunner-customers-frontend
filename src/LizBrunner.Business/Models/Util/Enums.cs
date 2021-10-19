@@ -2,19 +2,18 @@
 
 namespace LizBrunner.Business.Models.Util
 {
-    public class Enums
-    {
+   
         public enum Genders
         {
 
-            Masculino,
-            Feminino,
             [Display(Name = "Prefiro não informar")]
-            PrefiroNaoInformar
+            PrefiroNaoInformar,
+            Masculino,
+            Feminino
         }
 
 
-        public enum State
+        public enum States
         {
             AC,
             AL,
@@ -42,9 +41,10 @@ namespace LizBrunner.Business.Models.Util
             SC,
             SP,
             SE,
-            TO
+            TO,
+            Internacional
         }
        
 
-    }
+   
 }

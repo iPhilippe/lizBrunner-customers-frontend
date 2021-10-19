@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+
 namespace LizBrunner.App.Controllers
 {
 
@@ -25,7 +26,7 @@ namespace LizBrunner.App.Controllers
         // GET: Client
         public async Task<IActionResult> Index()
         {
-            return View(_mapper.Map<IEnumerable<ClientViewModel>> (await _clientRepository.ObterTodos()));
+            return View(_mapper.Map<IEnumerable<ClientViewModel>>(await _clientRepository.ObterQuinzeRegistros()));
         }
 
         // GET: Client/Details/5
@@ -53,12 +54,14 @@ namespace LizBrunner.App.Controllers
         public async Task<IActionResult> Create(ClientViewModel clientViewModel)
         {
             if (!ModelState.IsValid) return View(clientViewModel);
+            
+            clientViewModel.RegisterDate = DateTime.Now; //Pega a data do registro no momento do cadastro 
 
-            var client = _mapper.Map<Client>(clientViewModel);
+           var client = _mapper.Map<Client>(clientViewModel);
             await _clientRepository.Adicionar(client);
 
-                return RedirectToAction("Index");
-            
+            return RedirectToAction("Index");
+
         }
 
         // GET: Client/Edit/5
@@ -96,7 +99,7 @@ namespace LizBrunner.App.Controllers
             var clientViewModel = await ObterClientEEndereco(id);
 
             if (clientViewModel == null) return NotFound();
-            
+
 
             return View(clientViewModel);
         }
@@ -119,8 +122,7 @@ namespace LizBrunner.App.Controllers
         private async Task<ClientViewModel> ObterClientEEndereco(Guid id)
         {
             return _mapper.Map<ClientViewModel>(await _clientRepository.ObterPorId(id));
-        } 
-        
+        }
 
     }
 }

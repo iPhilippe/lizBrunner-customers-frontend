@@ -1,7 +1,9 @@
+using LizBrunner.App.Configurations;
 using LizBrunner.Business.Interfaces;
 using LizBrunner.Data.Context;
 using LizBrunner.Data.Repository;
 using lizBrunnerApp.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -65,13 +67,14 @@ namespace lizBrunnerApp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCookiePolicy();
             app.UseRouting();
-
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseGlobalizationConfig();
 
             app.UseEndpoints(endpoints =>
             {

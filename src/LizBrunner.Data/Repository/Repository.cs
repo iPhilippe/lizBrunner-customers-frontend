@@ -50,6 +50,12 @@ namespace LizBrunner.Data.Repository
             return await DbSet.ToListAsync();
         }
 
+        public virtual async Task<List<TEntity>> ObterQuinzeRegistros()
+        {
+            return await DbSet.Take(15).ToListAsync();
+        }
+
+
         public virtual async Task Remover(Guid id)
         {
             DbSet.Remove(new TEntity { Id = id});

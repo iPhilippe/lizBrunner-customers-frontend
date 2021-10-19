@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LizBrunner.Data.Migrations
 {
     [DbContext(typeof(LizDbContext))]
-    [Migration("20211010210441_Initial")]
+    [Migration("20211019024517_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
